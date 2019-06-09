@@ -3,7 +3,7 @@
 //+------------------------------------------------------------------+
 //|                                                      mod by Raff |
 //+------------------------------------------------------------------+
-#property copyright "Copyright © 2006, Forex-TSD.com "
+#property copyright "Copyright ?2006, Forex-TSD.com "
 #property link      "http://www.forex-tsd.com/"
 
 #property indicator_chart_window
@@ -89,8 +89,7 @@ int start()
       maClose=iMA(NULL,0,MaPeriod,0,MaMetod,MODE_CLOSE,pos);
       maLow=iMA(NULL,0,MaPeriod,0,MaMetod,MODE_LOW,pos);
       maHigh=iMA(NULL,0,MaPeriod,0,MaMetod,MODE_HIGH,pos);
-
-      haOpen=(ExtMapBuffer5[pos+1]+ExtMapBuffer6[pos+1])/2;
+      if(pos+1 == Bars){haOpen==0;} else haOpen=(ExtMapBuffer5[pos+1]+ExtMapBuffer6[pos+1])/2;
       haClose=(maOpen+maHigh+maLow+maClose)/4;
       haHigh=MathMax(maHigh, MathMax(haOpen, haClose));
       haLow=MathMin(maLow, MathMin(haOpen, haClose));
